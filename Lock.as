@@ -1,11 +1,11 @@
 ﻿package {
-import flash.display.Sprite;
+import flash.display.MovieClip;
 import flash.events.Event;
 import flash.events.MouseEvent;
 import flash.events.TimerEvent;
 import flash.utils.Timer;
 
-public class Lock extends Sprite{
+public class Lock extends MovieClip{
 
     private var eventTimer:Timer;
     private var lockPosition:int;
@@ -55,7 +55,7 @@ public class Lock extends Sprite{
                 this.key1open = false;
             }
             if (this.lockPosition == this.key3) {
-                //TODO: See what to do when it unlocks
+                MovieClip(this.parent).gotoAndStop(2);
             }
 
         }
