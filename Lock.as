@@ -14,7 +14,8 @@ public class Lock extends MovieClip{
     private var key3:int;
     private var key1open:Boolean;
     private var key2open:Boolean;
-
+	private var lockSound:LockMoveSound;
+	
     public function Lock(){
 
         this.eventTimer = new Timer(100);
@@ -27,7 +28,7 @@ public class Lock extends MovieClip{
         addEventListener(MouseEvent.MOUSE_UP, onRelease);
         addEventListener(MouseEvent.MOUSE_OUT, onRelease);
         addEventListener(MouseEvent.CLICK, clickHandler);
-
+		this.lockSound = new LockMoveSound();
     }
 
     private function onRelease(event:MouseEvent):void {
@@ -70,6 +71,7 @@ public class Lock extends MovieClip{
             if (Math.sqrt((stage.mouseX - this.x)*(stage.mouseX - this.x) +
                             (stage.mouseY - this.y)*(stage.mouseY - this.y)) < (this.width/2)){
 
+				this.lockSound.play();
                 //If the click is on left side of the circle else is on right
                 if(stage.mouseX < this.x){
                     this.rotation += 3.6;
